@@ -76,7 +76,7 @@ public class main {
     }
 
     @Test
-    @DisplayName("Проверка ошибки при отсутствии значени")
+    @DisplayName("Проверка ошибки при отсутствии значения")
     public void test3() {
         searchPage.search("Калькулятор");
         calculatorPage.CalculatorInput97.click();
