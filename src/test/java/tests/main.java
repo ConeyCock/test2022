@@ -1,6 +1,7 @@
 package tests;
 
 import Pages.CalculatorPage;
+import Pages.DetailsPage;
 import Pages.SearchPage;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -9,11 +10,15 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class main {
 
     private static  WebDriver driver;
     private static SearchPage searchPage;
     private static CalculatorPage calculatorPage;
+    private static DetailsPage detailsPage;
 
 
     @BeforeAll
@@ -24,6 +29,7 @@ public class main {
         driver = new ChromeDriver(options);
         searchPage = new SearchPage(driver);
         calculatorPage = new CalculatorPage(driver);
+        detailsPage = new DetailsPage(driver);
 
     }
 
@@ -44,6 +50,10 @@ public class main {
         calculatorPage.CalculatorInput95.click();
         calculatorPage.CalculatorInput5.click();
         calculatorPage.CalculatorInput96.click();
+        assertAll(
+                () -> assertEquals("(1 + 2) × 3 - 40 ÷ 5 =", detailsPage.getExpression()),
+                () ->assertEquals("1", detailsPage.getResults())
+        );
 
 
     }

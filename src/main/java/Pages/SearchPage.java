@@ -14,7 +14,6 @@ public class SearchPage {
     private WebElement searchInput;
 
 
-
     public SearchPage(WebDriver driver) {
         initElements(driver,this);
     }
