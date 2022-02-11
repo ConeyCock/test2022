@@ -36,6 +36,7 @@ public class main {
     }
 
     @Test
+    @DisplayName("Проверка операций с целыми числами")
     public void test1() {
         searchPage.search("Калькулятор" );
         calculatorPage.CalculatorInput90.click();
@@ -60,6 +61,7 @@ public class main {
     }
 
     @Test
+    @DisplayName("Проверка деления на ноль")
     public void test2() {
         searchPage.search("Калькулятор");
         calculatorPage.CalculatorInput6.click();
@@ -74,6 +76,7 @@ public class main {
     }
 
     @Test
+    @DisplayName("Проверка ошибки при отсутствии значения")
     public void test3() {
         searchPage.search("Калькулятор");
         calculatorPage.CalculatorInput97.click();
