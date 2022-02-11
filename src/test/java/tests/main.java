@@ -73,6 +73,19 @@ public class main {
 
     }
 
+    @Test
+    public void test3() {
+        driver.get("http://google.com");
+        searchPage.search("Калькулятор");
+        calculatorPage.CalculatorInput97.click();
+        calculatorPage.CalculatorInput96.click();
+        assertAll(
+                () -> assertEquals("sin() =", detailsPage.getExpression()),
+                () -> assertEquals("Error", detailsPage.getResults())
+        );
+
+    }
+
     @AfterAll
     public static void teardown() {
         driver.quit();

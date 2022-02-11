@@ -37,6 +37,10 @@ public class CalculatorPage {
     @FindBy(css = "div[jsname*='Pt8tGc']")
     public WebElement CalculatorInput96;
 
+    //Sin
+    @FindBy(css = "div[jsname*='aN1RFf']")
+    public WebElement CalculatorInput97;
+
 
     // Цифры
 
