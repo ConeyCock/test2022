@@ -1,5 +1,6 @@
 package tests;
 
+import Pages.SearchPage;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -10,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class main {
 
     private static  WebDriver driver;
+    private static SearchPage searchPage;
 
 
     @BeforeAll
@@ -18,12 +20,13 @@ public class main {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         driver = new ChromeDriver(options);
+        searchPage = new SearchPage(driver);
     }
 
     @Test
     public void test1() {
         driver.get("http://google.com");
-        driver.findElement(By.cssSelector("input.gLFyf.gsfi")).sendKeys("Калькулятор", Keys.ENTER);
+        searchPage.search("Калькулятор" );
         driver.findElement(By.cssSelector("div[jsname*='j93WEe']")).click();
         driver.findElement(By.cssSelector("div[jsname*='N10B9']")).click();
         driver.findElement(By.cssSelector("div[jsname*='XSr6wc']")).click();
@@ -37,6 +40,7 @@ public class main {
         driver.findElement(By.cssSelector("div[jsname*='WxTTNd']")).click();
         driver.findElement(By.cssSelector("div[jsname*='Ax5wH']")).click();
         driver.findElement(By.cssSelector("div[jsname*='Pt8tGc']")).click();
+
 
     }
 
