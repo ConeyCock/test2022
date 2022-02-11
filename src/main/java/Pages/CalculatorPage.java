@@ -58,6 +58,9 @@ public class CalculatorPage {
     @FindBy(css = "div[jsname*='Ax5wH']")
     public WebElement CalculatorInput5;
 
+    @FindBy(css = "div[jsname*='abcgof']")
+    public WebElement CalculatorInput6;
+
 
 
     public CalculatorPage(WebDriver driver) {

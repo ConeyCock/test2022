@@ -52,9 +52,24 @@ public class main {
         calculatorPage.CalculatorInput96.click();
         assertAll(
                 () -> assertEquals("(1 + 2) × 3 - 40 ÷ 5 =", detailsPage.getExpression()),
-                () ->assertEquals("1", detailsPage.getResults())
+                () -> assertEquals("1", detailsPage.getResults())
         );
 
+
+    }
+
+    @Test
+    public void test2() {
+        driver.get("http://google.com");
+        searchPage.search("Калькулятор");
+        calculatorPage.CalculatorInput6.click();
+        calculatorPage.CalculatorInput95.click();
+        calculatorPage.CalculatorInput0.click();
+        calculatorPage.CalculatorInput96.click();
+        assertAll(
+                () -> assertEquals("6 ÷ 0 =", detailsPage.getExpression()),
+                () -> assertEquals("Infinity", detailsPage.getResults())
+        );
 
     }
 
