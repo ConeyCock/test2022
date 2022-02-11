@@ -3,9 +3,7 @@ package tests;
 import Pages.CalculatorPage;
 import Pages.DetailsPage;
 import Pages.SearchPage;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -21,8 +19,8 @@ public class main {
     private static DetailsPage detailsPage;
 
 
-    @BeforeAll
-    public static void init(){
+    @BeforeEach
+    public void init(){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
@@ -30,12 +28,15 @@ public class main {
         searchPage = new SearchPage(driver);
         calculatorPage = new CalculatorPage(driver);
         detailsPage = new DetailsPage(driver);
+    }
 
+    @BeforeEach
+    public void setup(){
+        driver.get("http://google.com");
     }
 
     @Test
     public void test1() {
-        driver.get("http://google.com");
         searchPage.search("Калькулятор" );
         calculatorPage.CalculatorInput90.click();
         calculatorPage.CalculatorInput1.click();
@@ -60,7 +61,6 @@ public class main {
 
     @Test
     public void test2() {
-        driver.get("http://google.com");
         searchPage.search("Калькулятор");
         calculatorPage.CalculatorInput6.click();
         calculatorPage.CalculatorInput95.click();
@@ -75,7 +75,6 @@ public class main {
 
     @Test
     public void test3() {
-        driver.get("http://google.com");
         searchPage.search("Калькулятор");
         calculatorPage.CalculatorInput97.click();
         calculatorPage.CalculatorInput96.click();
@@ -86,8 +85,8 @@ public class main {
 
     }
 
-    @AfterAll
-    public static void teardown() {
+    @AfterEach
+    public void teardown() {
         driver.quit();
     }
 }
